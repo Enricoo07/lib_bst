@@ -1,5 +1,6 @@
 #include <iostream>
 #include "20241123_DAmbrosi_Library_BST.h"
+#include "20241123_DAmbrosi_Library_BST.cpp"
 using namespace std;
 
 int main(){
