@@ -34,3 +34,74 @@ void Node:: inOrder(){
         this->rchild->inOrder();
     }
 }
+
+//ricerca iterativa
+
+bool Node:: searchI(int k){
+    bool check{true};
+    Node *current{this};
+    while (check){
+
+        if (current==NULL){
+            cout << "non trovato" << " ";
+            return false;
+        }
+
+        if(current->data==k){
+            cout << "trovato" << " ";
+            return true;
+        }
+        if (k<current->data){
+            current = current->lchild;
+        } else {
+            current=current->rchild;
+        }
+    }
+    return -1;
+}
+
+// ricerca ricorsiva di k
+
+bool Node:: searchR(int k){
+    if (this==NULL){
+        cout << "non trovato" << " ";
+        return false;
+    }
+    if (this->data==k){
+        cout << "trovato" << " ";
+        return true;
+    }
+    if (k<this->data){
+        return this->lchild->searchR(k);
+    } else {
+        return this->rchild->searchR(k);
+    }
+}
+
+// inserimento iterativo di k
+
+Node* Node::insertI(int k) {
+    Node *current{this};
+    Node *parent{nullptr};
+    while (current != NULL) {
+        if (current->data == k) {
+            current->weight++;
+            return this;
+        }
+        if (k < current->data) {
+            parent = current;
+            current = current->lchild;
+        } else {
+            parent = current;
+            current = current->rchild;
+        }
+    }
+
+    Node *n = new Node(k);
+    if (k < parent->data) {
+        parent->lchild = n;
+    } else {
+        parent->rchild = n;
+    }
+    return this;
+}

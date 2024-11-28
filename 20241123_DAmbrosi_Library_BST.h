@@ -18,5 +18,8 @@ class Node {
     }
     Node* insertR(int k);
     void inOrder();
+    bool searchI(int k);
+    bool searchR(int k);
+    Node* insertI(int k);
 };
 #endif

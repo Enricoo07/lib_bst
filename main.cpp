@@ -8,9 +8,16 @@ int main(){
     root=root->insertR(23);
     root=root->insertR(25);
     root=root->insertR(10);
-    root=root->insertR(104);
-    root=root->insertR(53);
-    root=root->insertR(208);
+    root=root->insertI(104);
+    root=root->insertI(53);
+    root=root->insertI(208);
+    cout << "iterativo" << endl;
+    cout << root->searchI(40) << endl;
+    cout << root->searchI(25) << endl;
+    cout << "ricorsivo" << endl;
+    cout << root->searchR(40) << endl;
+    cout << root->searchR(25) << endl;
+    cout << "stampa inorder" << endl;
     root->inOrder();
     return 0;
 }
