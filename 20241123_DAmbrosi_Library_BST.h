@@ -9,6 +9,7 @@ class Node {
     int weight;
     Node *lchild;
     Node *rchild;
+
     public:
     Node (int key){
         data = key;
@@ -21,5 +22,15 @@ class Node {
     bool searchI(int k);
     bool searchR(int k);
     Node* insertI(int k);
+
+    friend ostream& operator<<(ostream& o, const Node* node){
+        o << node->data;
+        return o;
+    }
+    
+    friend istream& operator>>(istream& i, Node* node){
+        i >> node->data;
+        return i;
+    }
 };
 #endif

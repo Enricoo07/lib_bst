@@ -19,5 +19,11 @@ int main(){
     cout << root->searchR(25) << endl;
     cout << "stampa inorder" << endl;
     root->inOrder();
+
+    Node *n=new Node(34);
+    cout << "Il nodo è:" << n << endl;
+    cout << "dammi un nuovo valore" << endl;
+    cin >> n;
+    cout << "ora il valore del nodo è:" << n << endl; 
     return 0;
 }
