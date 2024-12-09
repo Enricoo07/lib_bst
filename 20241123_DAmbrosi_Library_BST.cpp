@@ -105,3 +105,82 @@ Node* Node::insertI(int k) {
     }
     return this;
 }
+
+//scorrimento ricorsivo Preorder traversal
+
+void Node:: preOrder(){
+    cout<<this->data<<" ";
+    if(this->lchild!=NULL){
+        this->lchild->preOrder();
+    }
+    if(this->rchild!=NULL){
+        this->rchild->preOrder();
+    }
+}
+
+//scorrimento ricorsivo Postorder traversal
+
+void Node:: postOrder(){
+    if(this->lchild!=NULL){
+        this->lchild->postOrder();
+    }
+    if(this->rchild!=NULL){
+        this->rchild->postOrder();
+    }
+    cout<<this->data<<" ";
+}
+
+//delete ricorsivo di un nodo con this
+
+Node* Node::deleteNode(int k) {
+    if (this->data==NULL){
+        cout << "non posso cancellare un nodo che non c'è" << endl;
+        return this;
+    }
+    if (k==this->data){
+        if (this->lchild==NULL && this->rchild==NULL){
+            delete [] this;
+            return this;
+        } else if(this->lchild!=NULL && this->rchild==NULL){
+            Node* temp;
+            temp->data=this->data;
+            this->data=this->lchild->data;
+            this->lchild->data=temp->data;
+            delete [] this->lchild;
+            return this;
+        } else if(this->lchild==NULL && this->rchild!=NULL){
+            Node* temp;
+            temp->data=this->data;
+            this->data=this->rchild->data;
+            this->rchild->data=temp->data;
+            delete [] this->rchild;
+            return this;
+        }
+    }
+    if (k<this->data){
+        this->lchild= this->lchild->insertR(k);
+    } else {
+        this->rchild= this->rchild->insertR(k);
+    }
+    return this;
+}    
+
+// verifico se è un bst
+
+bool Node:: isBst(){
+    if(this==NULL){
+        cout << "l'albero e vuoto";
+        return true;
+    }
+    if(this->lchild!=NULL && this->lchild->data<this->data){
+        return this->lchild->isBst();
+    }else if(this->lchild!=NULL && this->lchild->data>this->data){
+        return false;
+    }
+    if(this->rchild!=NULL && this->rchild->data>this->data){
+        return this->rchild->isBst();
+    }else if(this->rchild!=NULL && this->rchild->data<this->data){
+        return false;
+    }
+    return true;
+}

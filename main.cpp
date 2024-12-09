@@ -19,5 +19,17 @@ int main(){
     cout << root->searchR(25) << endl;
     cout << "stampa inorder" << endl;
     root->inOrder();
+    cout << endl;
+    cout << "stampa preorder" << endl;
+    root->preOrder();
+    cout << endl;
+    cout << "stampa postorder" << endl;
+    root->postOrder();
+    cout << endl;
+    cout << "cancella nodo iterativo" << endl;
+    cout << root->deleteNode(208) << endl;
+    cout << root->deleteNode(104) << endl;
+    cout << "is bst" << endl;
+    cout << root->isBst() << endl;
     return 0;
 }

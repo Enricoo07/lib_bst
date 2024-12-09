@@ -21,5 +21,9 @@ class Node {
     bool searchI(int k);
     bool searchR(int k);
     Node* insertI(int k);
+    void preOrder();
+    void postOrder();
+    Node* deleteNode(int k); 
+    bool isBst();
 };
 #endif
