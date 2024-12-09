@@ -17,20 +17,22 @@ class Node {
         lchild = nullptr;
         rchild = nullptr;
     }
+
+    Node (){
+        data=0;
+        weight=1;
+        lchild=nullptr;
+        rchild=nullptr;
+    }
+
     Node* insertR(int k);
     void inOrder();
     bool searchI(int k);
     bool searchR(int k);
     Node* insertI(int k);
 
-    friend ostream& operator<<(ostream& o, const Node* node){
-        o << node->data;
-        return o;
-    }
+    friend ostream& operator<<(ostream& o, const Node* node);
     
-    friend istream& operator>>(istream& i, Node* node){
-        i >> node->data;
-        return i;
-    }
+    friend istream& operator>>(istream& i, Node* node);
 };
 #endif

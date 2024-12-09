@@ -1,5 +1,5 @@
-#include <iostream>
 #include "20241123_DAmbrosi_Library_BST.h"
+#include <iostream>
 using namespace std;
 
 //crea nodo con ricorsione
@@ -104,4 +104,28 @@ Node* Node::insertI(int k) {
         parent->rchild = n;
     }
     return this;
+}
+
+ostream& operator<<(ostream& o, const Node* node){
+    o << "Data-> " << node->data << " (" << node->weight << ")" << " figlio sinistro: " << "";
+
+    if(node->lchild!=nullptr){
+        o << node->lchild->data<< ""; 
+    }
+
+    o << " || figlio destro: " << "";
+
+    if(node->rchild!=nullptr){
+        o << node->rchild->data << "";
+    }
+
+    o << endl;
+    return o;
+}
+
+istream& operator>>(istream& i, Node* node){
+    cout << "dammi un nuovo valore per il nodo" << endl;
+    node->weight=1;
+    i >> node->data;
+    return i;
 }

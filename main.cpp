@@ -1,6 +1,6 @@
-#include <iostream>
 #include "20241123_DAmbrosi_Library_BST.h"
 #include "20241123_DAmbrosi_Library_BST.cpp"
+#include <iostream>
 using namespace std;
 
 int main(){
@@ -20,10 +20,13 @@ int main(){
     cout << "stampa inorder" << endl;
     root->inOrder();
 
-    Node *n=new Node(34);
-    cout << "Il nodo è:" << n << endl;
-    cout << "dammi un nuovo valore" << endl;
-    cin >> n;
-    cout << "ora il valore del nodo è:" << n << endl; 
+    cout << endl;
+    cout << root;
+    cin >> root;
+    cout << root << ""; 
+
+    Node *n;
+    cin>>n;
+    // cout << n << "";
     return 0;
 }
